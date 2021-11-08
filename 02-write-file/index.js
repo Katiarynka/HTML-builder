@@ -9,7 +9,6 @@ fs.writeFile(newFileName, '', error => { if (error) throw error; });
 
 stdout.write('Please, enter text:\n');
 stdin.on('data', data => {
-    const text = data.toString();
     if (data.toString().trim() === 'exit') {
         process.exit();
     };
