@@ -3,7 +3,7 @@ const path = require('path');
 
 const { stdin, stdout, exit } = process;
 
-const newFileName = path.join(__dirname, 'test.txt');
+const newFileName = path.join(__dirname, 'notes.txt');
 
 fs.writeFile(newFileName, '', error => { if (error) throw error; });
 
@@ -18,4 +18,8 @@ stdin.on('data', data => {
 
 process.on('exit', () => {
     stdout.write('Goodbye! Good luck!\n');
+});
+
+process.on('SIGINT', () => {
+    process.exit();
 });
